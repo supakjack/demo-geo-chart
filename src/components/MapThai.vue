@@ -15,11 +15,11 @@ onMounted(() => {
         attribution:
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map)
-    const customLabel: string =
-        "<div> Test Maker Label </div>" +
-        "<h1> Test Maker Label Tag </h1>" +
-        "<input type='text'>";
-    const marker = L.marker([13.32916, 459.865551]).addTo(map).bindPopup(customLabel);
+    const customLabel = L.divIcon({
+        className: 'custom-div-label', html: "<div> Test Maker Label </div>< h1 > Test Maker Label Tag</ h1 > < input type = 'text' > "
+    })
+
+    const marker = L.marker([13.32916, 459.865551]).addTo(map).bindPopup("Hello");
 })
 </script>
 <template>
