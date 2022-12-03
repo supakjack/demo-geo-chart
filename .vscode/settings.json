@@ -18,7 +18,7 @@
   "vue3snippets.trailingComma": "none",
   "vue3snippets.tabWidth": 4,
   "[vue]": {
-    "editor.defaultFormatter": "Wscats.vue"
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[ts]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
