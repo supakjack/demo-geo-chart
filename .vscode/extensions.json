@@ -11,6 +11,8 @@
     "redhat.vscode-yaml",
     "bradlc.vscode-tailwindcss",
     "wejectchan.vue3-snippets-for-vscode",
-    "Wscats.vue"
+    "wscats.vue",
+    "ms-vscode-remote.remote-wsl",
+    "eamodio.gitlens"
   ]
 }
