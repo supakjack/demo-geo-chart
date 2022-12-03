@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
     <div class="card lg:card-side bg-base-100 shadow-xl min-h-64">
-        <MapThai :id="'map1'" class="h-xs w-full" />
+        <MapThai class="h-xs w-full" />
         <div class="card-body">
             <h2 class="card-title">New album is released!</h2>
             <p>Click the button to listen on Spotiwhy app.</p>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="card lg:card-side bg-base-100 shadow-xl min-h-64">
-        <MapThai :id="'map2'" class="h-xs w-full" />
+        <MapThai class="h-xs w-full" />
         <div class="card-body">
             <h2 class="card-title">New album is released!</h2>
             <p>Click the button to listen on Spotiwhy app.</p>

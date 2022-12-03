@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { useLeaflet } from '@/composables'
+import { nanoid } from 'nanoid'
 const { L } = useLeaflet()
 
 const prop = defineProps<{
-    id: string
+    id?: string
 }>()
 
+const genarateId = computed<string>(() => nanoid())
 onMounted(() => {
-    const map = L.map(prop.id).setView([13.32916, 459.865551], 13)
+    const map = L.map(prop.id || genarateId.value).setView([13.32916, 459.865551], 13)
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution:
@@ -18,5 +20,5 @@ onMounted(() => {
 })
 </script>
 <template>
-    <div :id="id"></div>
+    <div :id="id || genarateId"></div>
 </template>
