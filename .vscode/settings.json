@@ -23,5 +23,8 @@
   "[ts]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.keystyle": "nested"
+  "i18n-ally.keystyle": "nested",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import * as L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
+import { useLeaflet } from '@/composables'
+const { L } = useLeaflet()
+
 onMounted(() => {
     const map = L.map('map').setView([13.32916, 459.865551], 13)
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
