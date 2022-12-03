@@ -1,8 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-    <div class="mx-auto cursor-crosshair">
-        <Navbar />
+    <div class="mx-auto">
         <router-view />
-        <Footer />
     </div>
 </template>

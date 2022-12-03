@@ -1,18 +1,24 @@
-<script setup lang="ts">
-import { useLeaflet } from '@/composables'
-const { L } = useLeaflet()
-
-onMounted(() => {
-    const map = L.map('map').setView([13.32916, 459.865551], 13)
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map)
-
-    const marker = L.marker([13.32916, 459.865551]).addTo(map)
-})
-</script>
+<script setup lang="ts"></script>
 <template>
-    <div id="map" class="h-screen"></div>
+    <div class="card lg:card-side bg-base-100 shadow-xl min-h-64">
+        <MapThai :id="'map1'" class="h-xs w-full" />
+        <div class="card-body">
+            <h2 class="card-title">New album is released!</h2>
+            <p>Click the button to listen on Spotiwhy app.</p>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary">Listen</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card lg:card-side bg-base-100 shadow-xl min-h-64">
+        <MapThai :id="'map2'" class="h-xs w-full" />
+        <div class="card-body">
+            <h2 class="card-title">New album is released!</h2>
+            <p>Click the button to listen on Spotiwhy app.</p>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary">Listen</button>
+            </div>
+        </div>
+    </div>
 </template>
