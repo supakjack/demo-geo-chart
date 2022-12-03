@@ -1,0 +1,12 @@
+index:
+  banner:
+    title: อยากทำเว็บไซต์,เรียนเขียนโปรแกรม,ปรึกษาโปรเจค
+  navbar:
+    logo: SUPAKSOFTWARE
+    menu:
+      about: เกี่ยวกับ
+      blog: บทความ
+      contact: ติดต่อ
+      home: หน้าแรก
+      service: บริการ
+      works: ผลงาน

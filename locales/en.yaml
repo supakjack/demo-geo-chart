@@ -1,0 +1,13 @@
+index:
+  banner:
+    title: อยากทำเว็บไซต์,เรียนเขียนโปรแกรม,ปรึกษาโปรเจค
+  navbar:
+    menu:
+      about: Abbout
+      blog: Blog
+      contact: Contact
+      home: Home
+      service: Service
+login:
+  buttonLogin: Login with google
+  title: Massage and spa service platform

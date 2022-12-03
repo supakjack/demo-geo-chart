@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "lokalise.i18n-ally",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "formulahendry.auto-close-tag",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "voorjaar.windicss-intellisense",
+    "redhat.vscode-yaml",
+    "bradlc.vscode-tailwindcss",
+    "wejectchan.vue3-snippets-for-vscode",
+    "Wscats.vue"
+  ]
+}
