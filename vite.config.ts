@@ -11,33 +11,33 @@ import WindiCSS from 'vite-plugin-windicss'
 // import inject from '@rollup/plugin-inject'
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
-  },
-  build: {
-    target: 'esnext'
-  },
-  plugins: [
-    Vue(),
-    pluginRewriteAll(),
-    WindiCSS(),
-    Pages({
-      exclude: ['**/components/*.vue']
-    }),
-    Layouts({
-      defaultLayout: 'public'
-    }),
-    AutoImport({
-      imports: ['vue-i18n', 'vue', 'vue-router', '@vueuse/core'],
-      dts: 'src/auto-imports.d.ts'
-    }),
-    Components({
-      dts: 'src/auto-components.d.ts'
-    }),
-    vueI18n({
-      include: path.resolve(__dirname, 'locales/**')
-    })
-  ]
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src')
+        }
+    },
+    build: {
+        target: 'esnext'
+    },
+    plugins: [
+        Vue(),
+        pluginRewriteAll(),
+        WindiCSS(),
+        Pages({
+            exclude: ['**/components/*.vue']
+        }),
+        Layouts({
+            defaultLayout: 'public'
+        }),
+        AutoImport({
+            imports: ['vue-i18n', 'vue', 'vue-router', '@vueuse/core'],
+            dts: 'src/auto-imports.d.ts'
+        }),
+        Components({
+            dts: 'src/auto-components.d.ts'
+        }),
+        vueI18n({
+            include: path.resolve(__dirname, 'locales/**')
+        })
+    ]
 })

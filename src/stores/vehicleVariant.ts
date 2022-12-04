@@ -1,5 +1,14 @@
 import { defineStore } from 'pinia'
 import { useVehicleCategoryStore } from '@/stores'
+import carRed from '@/assets/image/car-red.png'
+import carGreen from '@/assets/image/car-green.png'
+import carBlack from '@/assets/image/car-black.png'
+import bikeRed from '@/assets/image/bike-red.png'
+import bikeGreen from '@/assets/image/bike-green.png'
+import bikeBlack from '@/assets/image/bike-black.png'
+import motocycleRed from '@/assets/image/motorcycle-red.png'
+import motocycleGreen from '@/assets/image/motorcycle-green.png'
+import motocycleBlack from '@/assets/image/motorcycle-black.png'
 
 export const useVehicleVariantStore = defineStore('vehicleVariant', () => {
     const vehicleCategoryStore = useVehicleCategoryStore()

@@ -6,6 +6,10 @@ const vehicleCategory = useVehicleCategoryStore()
 const inputAutoComplete = ref<string>('')
 const isShowSuggest = ref<boolean>(false)
 
+const emit = defineEmits<{
+    (event: 'click:submit', value: Group[]): void
+}>()
+
 function handleUpdateCategory(value: string) {
     vehicleCategory.selected = vehicleCategory.data.find(
         (data) => data.value == value
