@@ -15,11 +15,18 @@ onMounted(() => {
         attribution:
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map)
-    const customLabel = L.divIcon({
-        className: 'custom-div-label', html: "<div> Test Maker Label </div>< h1 > Test Maker Label Tag</ h1 > < input type = 'text' > "
-    })
+    const customLabel =
+        "<div class='artboard artboard-horizontal phone - 1'></div>" +
+        "Marker" +
+        "<div class='btn-group btn-group-vertical lg:btn-group-horizontal'>" +
+        "<button type='button' class='btn btn-success'>คำสั่งเปิด</button>" +
+        "<button type='button' class='btn btn-secondary'>คำสั่งปิด</button>" +
+        "<button type='button' class='btn btn-primary'>อ่านข้อมูลปัจจุบัน</button>" +
+        "<button type='button' class='btn btn-ghost'>ปิด</button>" +
+        "</div>" +
+        "</div>"
 
-    const marker = L.marker([13.32916, 459.865551]).addTo(map).bindPopup("Hello");
+    const marker = L.marker([13.32916, 459.865551]).addTo(map).bindPopup(customLabel);
 })
 </script>
 <template>
