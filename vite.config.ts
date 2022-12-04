@@ -11,7 +11,7 @@ import WindiCSS from 'vite-plugin-windicss'
 // import inject from '@rollup/plugin-inject'
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: 'https://supakjack.github.io/demo-geo-chart/',
+    base: '/demo-geo-chart/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src')
