@@ -13,7 +13,7 @@ const emit = defineEmits<{
 </script>
 <template>
   <select class="select select-bordered" v-model="modelValue" @change="emit('update:modelValue', modelValue)">
-    <option v-if="placeholder" disabled selected :value="placeholder">{{ placeholder }}</option>
+    <option v-if="placeholder" disabled :value="placeholder">{{ placeholder }}</option>
     <option v-for="(data, index) in options" :key="index" :value="data[key || 'value']">
       {{ data[slug || 'slug'] }}
     </option>
