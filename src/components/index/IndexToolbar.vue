@@ -35,6 +35,10 @@ function handleClickBadge(value: string) {
 function toogle() {
     isShowSuggest.value = !isShowSuggest.value
 }
+
+const emit = defineEmits<{
+    (event: 'click:submit', value: Group[]): void
+}>()
 </script>
 <template>
     <IndexBaseToolbar>
@@ -70,7 +74,12 @@ function toogle() {
         </template>
 
         <template #submit>
-            <BaseButton class="btn-wide btn-primary btn-sm"> ค้นหา </BaseButton>
+            <BaseButton
+                @click="emit('click:submit', vehicleVariant.inSelected)"
+                class="btn-wide btn-primary btn-sm"
+            >
+                ค้นหา
+            </BaseButton>
         </template>
     </IndexBaseToolbar>
 </template>
