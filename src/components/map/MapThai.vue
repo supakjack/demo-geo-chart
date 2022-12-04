@@ -78,7 +78,7 @@ onMounted(() => {
     prop.vehicleMaker.map((vm) => {
         L.marker([vm.location![0], vm.location![1]], {
             icon: L.icon({
-                iconUrl: vm.icon,
+                iconUrl: vm.icon || '',
                 iconSize: [32, 32],
                 iconAnchor: [20, 0]
             }),
