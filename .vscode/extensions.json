@@ -2,7 +2,6 @@
   "recommendations": [
     "lokalise.i18n-ally",
     "vue.volar",
-    "vue.vscode-typescript-vue-plugin",
     "formulahendry.auto-close-tag",
     "steoates.autoimport",
     "formulahendry.auto-rename-tag",
@@ -13,6 +12,7 @@
     "wejectchan.vue3-snippets-for-vscode",
     "wscats.vue",
     "ms-vscode-remote.remote-wsl",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode"
   ]
 }
