@@ -1,1 +1,0 @@
-import{_ as o,c as r,a as t,o as c,r as a}from"./index.478ae135.js";const s={},n={class:"mx-auto w-full max-w-7xl px-8"};function _(l,i){const e=a("router-view");return c(),r("div",n,[t(e)])}var p=o(s,[["render",_]]);export{p as default};
