@@ -32,7 +32,7 @@ function handleClickBadge(value: string) {
     )
 }
 </script>
-<template v-slot="slotProps">
+<template>
     <IndexBaseToolbar>
         <template #category>
             <span class="mt-2">ค้นหาด้วย :</span>
