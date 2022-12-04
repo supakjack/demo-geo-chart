@@ -14,7 +14,6 @@ function handleUpdateCategory(value: string) {
 }
 
 function handleClickSuggest({ value }: Group) {
-    isShowSuggest.value = false
     if (!value) return
     if (
         vehicleVariant.inSelected.find(
@@ -27,9 +26,14 @@ function handleClickSuggest({ value }: Group) {
 }
 
 function handleClickBadge(value: string) {
+    console.log(value)
     vehicleVariant.inSelected = vehicleVariant.inSelected.filter(
         (inSelected) => inSelected.value != value
     )
+}
+
+function toogle() {
+    isShowSuggest.value = !isShowSuggest.value
 }
 </script>
 <template>
@@ -48,8 +52,7 @@ function handleClickBadge(value: string) {
         <template #searchbar>
             <IndexAutoComplete
                 v-model="inputAutoComplete"
-                @focusin="isShowSuggest = true"
-                @focusout="isShowSuggest = false"
+                @click="toogle"
                 @click:suggestion="handleClickSuggest"
                 :isShowSuggest="isShowSuggest"
                 :placeholder="vehicleVariant.placeholder"
