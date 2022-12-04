@@ -6,6 +6,10 @@ const vehicleCategory = useVehicleCategoryStore()
 const inputAutoComplete = ref<string>('')
 const isShowSuggest = ref<boolean>(false)
 
+const emit = defineEmits<{
+    (event: 'click:submit', value: Group[]): void
+}>()
+
 function handleUpdateCategory(value: string) {
     vehicleCategory.selected = vehicleCategory.data.find(
         (data) => data.value == value
@@ -70,7 +74,12 @@ function toogle() {
         </template>
 
         <template #submit>
-            <BaseButton class="btn-wide btn-primary btn-sm"> ค้นหา </BaseButton>
+            <BaseButton
+                @click="emit('click:submit', vehicleVariant.inSelected)"
+                class="btn-wide btn-primary btn-sm"
+            >
+                ค้นหา
+            </BaseButton>
         </template>
     </IndexBaseToolbar>
 </template>
