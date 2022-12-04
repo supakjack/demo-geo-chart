@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
-import { useRadioGroupStore } from '@/stores'
+import { useVehicleCategoryStore } from '@/stores'
 
-export const useSelectGroupStore = defineStore('selectGroup', () => {
-    const radioGroupStore = useRadioGroupStore()
+export const useVehicleVariantStore = defineStore('vehicleVariant', () => {
+    const vehicleCategoryStore = useVehicleCategoryStore()
 
     const type1Data = computed<Group[]>(() => [
         { slug: 'รถยนต์แดง', value: 'car-red' },
@@ -24,17 +24,15 @@ export const useSelectGroupStore = defineStore('selectGroup', () => {
 
     const selected = ref<Group | string>('กรุณาเลือกประเภทการค้นหาก่อน')
     const placeholder = computed<string>(() =>
-        radioGroupStore.selected
-            ? 'กรุณาเลือกสีของ' + radioGroupStore.selected.slug
+        vehicleCategoryStore.selected
+            ? 'กรุณาเลือกสีของ' + vehicleCategoryStore.selected.slug
             : 'กรุณาเลือกประเภทการค้นหาก่อน'
     )
     const inSelected = ref<Group[]>([])
-    const data = computed<Group[]>(() => handleChangeRadioGroup())
+    const data = computed<Group[]>(() => {
+        if (!vehicleCategoryStore.selected) return []
 
-    function handleChangeRadioGroup() {
-        if (!radioGroupStore.selected) return []
-
-        switch (radioGroupStore.selected.value) {
+        switch (vehicleCategoryStore.selected.value) {
             case '1':
                 return type1Data.value
             case '2':
@@ -44,27 +42,12 @@ export const useSelectGroupStore = defineStore('selectGroup', () => {
         }
 
         return []
-    }
-
-    function handleSelected(value: string) {
-        if (inSelected.value.find((inSelected) => inSelected.value == value))
-            return
-        const addData = data.value.find((data) => data.value == value)
-        if (addData) inSelected.value.push(addData)
-    }
-
-    function handleClickBadge(value: string) {
-        inSelected.value = inSelected.value.filter(
-            (inSelected) => inSelected.value != value
-        )
-    }
+    })
 
     return {
         data,
         selected,
         placeholder,
-        inSelected,
-        handleSelected,
-        handleClickBadge
+        inSelected
     }
 })

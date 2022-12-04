@@ -1,89 +1,73 @@
 <script setup lang="ts">
-import { useRadioGroupStore, useSelectGroupStore } from '@/stores'
+import { useVehicleCategoryStore, useVehicleVariantStore } from '@/stores'
 
-const selectGroupStore = useSelectGroupStore()
-const radioGroupStore = useRadioGroupStore()
+const vehicleVariant = useVehicleVariantStore()
+const vehicleCategory = useVehicleCategoryStore()
 const inputAutoComplete = ref<string>('')
-const isClickSuggest = ref<boolean>(false)
-const isFocusInput = ref<boolean>(false)
-const isFocusSuggest = ref<boolean>(false)
 const isShowSuggest = ref<boolean>(false)
 
-function hundleInput(e: Event) {
-    const { value } = e.target as HTMLTextAreaElement
-    inputAutoComplete.value = value
-}
-
-function handleFocusInInput() {
-    isFocusInput.value = true
-    isShowSuggest.value = true
-}
-
-function handleFocusOutInput() {
-    isFocusInput.value = false
-}
-
-function handleFocusInSuggest() {
-    isFocusSuggest.value = true
-    if (isClickSuggest.value) isShowSuggest.value = false
-}
-
-function handleFocusOutSuggest() {
-    isFocusSuggest.value = false
+function handleUpdateCategory(value: string) {
+    vehicleCategory.selected = vehicleCategory.data.find(
+        (data) => data.value == value
+    )
+    vehicleVariant.selected = vehicleVariant.placeholder
 }
 
 function handleClickSuggest({ value }: Group) {
-    isClickSuggest.value = true
     isShowSuggest.value = false
     if (!value) return
     if (
-        selectGroupStore.inSelected.find(
+        vehicleVariant.inSelected.find(
             (inSelected) => inSelected.value == value
         )
     )
         return
-    const addData = selectGroupStore.data.find((data) => data.value == value)
-    if (addData) selectGroupStore.inSelected.push(addData)
+    const addData = vehicleVariant.data.find((data) => data.value == value)
+    if (addData) vehicleVariant.inSelected.push(addData)
+}
+
+function handleClickBadge(value: string) {
+    vehicleVariant.inSelected = vehicleVariant.inSelected.filter(
+        (inSelected) => inSelected.value != value
+    )
 }
 </script>
-<template>
-    <div class="flex justify-between mt-4 mb-4">
-        <div class="flex items-start gap-4">
+<template v-slot="slotProps">
+    <IndexBaseToolbar>
+        <template #category>
             <span class="mt-2">ค้นหาด้วย :</span>
             <BaseCheckbox
                 groupName="group"
-                v-for="(data, index) in radioGroupStore.data"
-                @update:value="radioGroupStore.handleSelected"
-                :key="index"
+                v-for="data in vehicleCategory.data"
+                @update:value="handleUpdateCategory"
                 :slug="data.slug"
                 :value="data.value"
             />
-        </div>
-        <div class="flex items-start gap-4 justify-end">
-            <div class="flex flex-col w-xs">
-                <IndexAutoComplete
-                    @focusin:input="handleFocusInInput"
-                    @focusout:input="handleFocusOutInput"
-                    @focusin:suggest="handleFocusInSuggest"
-                    @focusout:suggest="handleFocusOutSuggest"
-                    :isShowSuggest="isShowSuggest"
-                    @click:suggestion="handleClickSuggest"
-                    :input="inputAutoComplete"
-                    @update:input="hundleInput"
-                    :placeholder="selectGroupStore.placeholder"
-                    :option="selectGroupStore.data"
-                />
-                <div class="mt-1 flex gap-1 flex-wrap">
-                    <BaseBadge
-                        class="mt-2"
-                        v-for="(data, index) in selectGroupStore.inSelected"
-                        @click="selectGroupStore.handleClickBadge(data.value)"
-                        :key="index"
-                        :slug="data.slug"
-                    />
-                </div>
-            </div>
+        </template>
+
+        <template #searchbar>
+            <IndexAutoComplete
+                v-model="inputAutoComplete"
+                @focusin="isShowSuggest = true"
+                @focusout="isShowSuggest = false"
+                @click:suggestion="handleClickSuggest"
+                :isShowSuggest="isShowSuggest"
+                :placeholder="vehicleVariant.placeholder"
+                :option="vehicleVariant.data"
+            />
+        </template>
+
+        <template #tag>
+            <BaseBadge
+                class="mt-2"
+                v-for="data in vehicleVariant.inSelected"
+                @click="handleClickBadge(data.value)"
+                :slug="data.slug"
+            />
+        </template>
+
+        <template #submit>
             <BaseButton class="btn-wide btn-primary btn-sm"> ค้นหา </BaseButton>
-        </div>
-    </div>
+        </template>
+    </IndexBaseToolbar>
 </template>
