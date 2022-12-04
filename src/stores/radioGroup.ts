@@ -1,15 +1,23 @@
 import { defineStore } from 'pinia'
+import { useSelectGroupStore } from '@/stores'
 
 export const useRadioGroupStore = defineStore('radioGroup', () => {
-  const selected = ref<Group>()
-  const data = computed<Group[]>(() => [
-    { slug: "กลุ่ม", value: "1" },
-    { slug: "เลขโคม", value: "2" },
-    { slug: "เลขเสา", value: "3" },
-  ])
+    const selectGroupStore = useSelectGroupStore()
+    const selected = ref<Group>()
+    const data = computed<Group[]>(() => [
+        { slug: 'รถยนต์', value: '1' },
+        { slug: 'มอเตอร์ไซต์', value: '2' },
+        { slug: 'จักรยาน', value: '3' }
+    ])
 
-  return {
-    data,
-    selected
-  }
+    function handleSelected(value: string) {
+        selected.value = data.value.find((data) => data.value == value)
+        selectGroupStore.selected = selectGroupStore.placeholder
+    }
+
+    return {
+        data,
+        selected,
+        handleSelected
+    }
 })

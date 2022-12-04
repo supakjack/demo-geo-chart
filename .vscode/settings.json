@@ -1,30 +1,19 @@
 {
-  "editor.defaultFormatter": "Wscats.vue",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "prettier.useEditorConfig": false,
-  "prettier.ignorePath": "./../locales/*",
-  "css.validate": false,
-  "i18n-ally.editor.preferEditor": true,
-  "i18n-ally.localesPaths": ["locales/"],
-  "i18n-ally.sortKeys": true,
-  "i18n-ally.displayLanguage": "th",
-  "i18n-ally.sourceLanguage": "th",
-  "i18n-ally.annotationMaxLength": 9999,
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": true,
-  "vue3snippets.singleQuote": true,
-  "vue3snippets.endOfLine": "auto",
-  "vue3snippets.semi": false,
-  "vue3snippets.trailingComma": "none",
-  "vue3snippets.tabWidth": 4,
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  },
-  "[ts]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "i18n-ally.keystyle": "nested",
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+    "volar.autoWrapParentheses": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "prettier.useEditorConfig": false,
+    "prettier.ignorePath": "./../locales*",
+    "prettier.configPath": ".prettierrc.yaml",
+    "i18n-ally.localesPaths": ["locales"],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.displayLanguage": "th",
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[ts]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

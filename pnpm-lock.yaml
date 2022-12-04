@@ -27,6 +27,7 @@ specifiers:
   vue-i18n: '9'
   vue-router: '4'
   vue-tsc: ^0.29.8
+  vue3-simple-typeahead: ^1.0.11
   windicss: ^3.5.6
 
 dependencies:
@@ -39,6 +40,7 @@ dependencies:
   vue: 3.2.37
   vue-i18n: 9.2.2_vue@3.2.37
   vue-router: 4.1.3_vue@3.2.37
+  vue3-simple-typeahead: 1.0.11_vue@3.2.37
 
 devDependencies:
   '@intlify/vite-plugin-vue-i18n': 3.4.0_vite@2.9.15+vue-i18n@9.2.2
@@ -2213,6 +2215,15 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
+
+  /vue3-simple-typeahead/1.0.11_vue@3.2.37:
+    resolution: {integrity: sha512-JKgVfWz7uENBoB4ginYw28ZVlv3LNTkFbZzbDdK2W0y+Pj2xIryfwKlkW5bYUN+w4CiPS6CmXhPma9uwUnk0Lg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.0.5
+    dependencies:
+      vue: 3.2.37
+    dev: false
 
   /webpack-virtual-modules/0.4.4:
     resolution: {integrity: sha512-h9atBP/bsZohWpHnr+2sic8Iecb60GxftXsWNLLLSqewgIsGzByd2gcIID4nXcG+3tNe4GQG3dLcff3kXupdRA==}

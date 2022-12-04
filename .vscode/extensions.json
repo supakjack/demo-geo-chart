@@ -1,18 +1,15 @@
 {
-  "recommendations": [
-    "lokalise.i18n-ally",
-    "vue.volar",
-    "formulahendry.auto-close-tag",
-    "steoates.autoimport",
-    "formulahendry.auto-rename-tag",
-    "christian-kohler.path-intellisense",
-    "voorjaar.windicss-intellisense",
-    "redhat.vscode-yaml",
-    "bradlc.vscode-tailwindcss",
-    "wejectchan.vue3-snippets-for-vscode",
-    "wscats.vue",
-    "ms-vscode-remote.remote-wsl",
-    "eamodio.gitlens",
-    "esbenp.prettier-vscode"
-  ]
+    "recommendations": [
+        "lokalise.i18n-ally",
+        "vue.volar",
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "voorjaar.windicss-intellisense",
+        "redhat.vscode-yaml",
+        "bradlc.vscode-tailwindcss",
+        "vue.vscode-typescript-vue-plugin"
+    ]
 }
