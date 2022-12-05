@@ -81,8 +81,7 @@ onMounted(() => {
                 iconUrl: vm.icon || '',
                 iconSize: [32, 32],
                 iconAnchor: [20, 0]
-            }),
-            pane: 'makerPane'
+            })
         })
             .addTo(map)
             .bindPopup(customLabel)
