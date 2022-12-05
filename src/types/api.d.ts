@@ -2,6 +2,7 @@ declare type Locales = 'th' | 'en'
 interface Group {
     slug: string
     value: string
-    icon?: string
-    location?: number[]
+    img?: string
+    la?: number
+    long?: number
 }

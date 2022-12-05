@@ -6,10 +6,6 @@ const vehicleCategory = useVehicleCategoryStore()
 const inputAutoComplete = ref<string>('')
 const isShowSuggest = ref<boolean>(false)
 
-const emit = defineEmits<{
-    (event: 'click:submit', value: Group[]): void
-}>()
-
 function handleUpdateCategory(value: string) {
     vehicleCategory.selected = vehicleCategory.data.find(
         (data) => data.value == value
@@ -39,6 +35,10 @@ function handleClickBadge(value: string) {
 function toogle() {
     isShowSuggest.value = !isShowSuggest.value
 }
+
+const emit = defineEmits<{
+    (event: 'click:submit', value: Group[]): void
+}>()
 </script>
 <template>
     <IndexBaseToolbar>

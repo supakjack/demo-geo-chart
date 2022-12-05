@@ -10,14 +10,14 @@ const prop = defineProps<{
     currentTime: string
     lastCommand: string
     lastStatus: string
-    vehicleMaker: Group[]
+    marker?: Group[]
 }>()
 
 const genarateId = computed<string>(() => nanoid())
 onMounted(() => {
     const map = L.map(prop.id || genarateId.value).setView(
-        [12.605443, 99.950003],
-        5
+        [12.611077, 99.895801],
+        10
     )
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -75,27 +75,27 @@ onMounted(() => {
         '</div>' +
         '</div>'
 
-    prop.vehicleMaker.map((vm) => {
-        L.marker([vm.location![0], vm.location![1]], {
-            icon: L.icon({
-                iconUrl: vm.icon || '',
-                iconSize: [32, 32],
-                iconAnchor: [20, 0]
+    L.marker([13.32916, 459.865551], { icon: customIcon })
+        .addTo(map)
+        .bindPopup(customLabel)
+
+    console.log(prop.marker)
+
+    prop.marker
+        ?.filter((marker) => marker.img && marker.la && marker.long)
+        .map((marker) => {
+            console.log(marker)
+
+            L.marker([marker.la || 0, marker.long || 0], {
+                icon: L.icon({
+                    iconUrl: marker.img || '',
+                    iconSize: [32, 32],
+                    iconAnchor: [20, 0]
+                })
             })
+                .addTo(map)
+                .bindPopup(customLabel)
         })
-            .addTo(map)
-            .bindPopup(customLabel)
-    })
-    // const bikeMarker = L.marker([12.605005, 99.949972], {
-    //     icon: prop.vehicleMaker
-    // })
-    //     .addTo(map)
-    //     .bindPopup(customLabel)
-    // const motoMarker = L.marker([18.365663, 103.639907], {
-    //     icon: prop.vehicleMaker
-    // })
-    //     .addTo(map)
-    //     .bindPopup(customLabel)
 })
 </script>
 <template>
